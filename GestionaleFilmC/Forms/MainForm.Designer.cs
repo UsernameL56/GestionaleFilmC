@@ -30,6 +30,8 @@
         {
             this.lblNome = new System.Windows.Forms.Label();
             this.lblRuolo = new System.Windows.Forms.Label();
+            this.dgvFilms = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFilms)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNome
@@ -50,16 +52,32 @@
             this.lblRuolo.TabIndex = 1;
             this.lblRuolo.Text = "label2";
             // 
+            // dgvFilms
+            // 
+            this.dgvFilms.AllowUserToAddRows = false;
+            this.dgvFilms.AllowUserToDeleteRows = false;
+            this.dgvFilms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFilms.Location = new System.Drawing.Point(2, 75);
+            this.dgvFilms.Name = "dgvFilms";
+            this.dgvFilms.ReadOnly = true;
+            this.dgvFilms.RowHeadersWidth = 51;
+            this.dgvFilms.RowTemplate.Height = 24;
+            this.dgvFilms.Size = new System.Drawing.Size(1063, 554);
+            this.dgvFilms.TabIndex = 2;
+            this.dgvFilms.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFilms_CellContentDoubleClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1466, 641);
+            this.Controls.Add(this.dgvFilms);
             this.Controls.Add(this.lblRuolo);
             this.Controls.Add(this.lblNome);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFilms)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -69,5 +87,6 @@
 
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblRuolo;
+        private System.Windows.Forms.DataGridView dgvFilms;
     }
 }
