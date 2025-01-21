@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionaleFilmC.Classes;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Crypto.Generators;
 
 namespace GestionaleFilmC.Forms
 {
@@ -31,30 +32,43 @@ namespace GestionaleFilmC.Forms
             string email = txtEmailLogin.Text;
             string password = txtPasswordLogin.Text;
 
-            string query = "SELECT * FROM filmDB_Users WHERE Username = @email AND Password = @password";
+            string query = "SELECT * FROM filmDB_Users WHERE Email = @email";
 
             using (var conn = db.GetConnection())
             {
                 conn.Open();
                 using (var cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@username", email);
-                    cmd.Parameters.AddWithValue("@password", password);
+                    cmd.Parameters.AddWithValue("@email", email);
 
                     using (var reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            MessageBox.Show("Login effettuato con successo!");
-                            // Passa alla finestra principale
-                            MainForm mainForm = new MainForm();
-                            this.Hide();
-                            mainForm.ShowDialog();
-                            this.Close();
+                            string hashedPassword = reader["Password"].ToString();
+                            // Confronta la password inserita con l'hash salvato
+                            if (BCrypt.Net.BCrypt.Verify(password, hashedPassword))
+                            {
+                                string nome = reader["Nome"].ToString();
+                                string cognome = reader["Cognome"].ToString();
+                                string emailUtente = reader["Email"].ToString();
+                                string ruolo = reader["Admin"].ToString();
+
+                                MessageBox.Show("Login effettuato con successo!");
+                                // Passa alla finestra principale
+                                MainForm mainForm = new MainForm(nome, cognome, emailUtente, ruolo);
+                                this.Hide();
+                                mainForm.ShowDialog();
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Password errata!");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Credenziali errate!");
+                            MessageBox.Show("Utente non trovato!");
                         }
                     }
                 }

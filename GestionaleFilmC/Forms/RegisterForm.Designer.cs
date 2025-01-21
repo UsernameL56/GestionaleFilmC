@@ -28,12 +28,144 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.txtNomeRegister = new System.Windows.Forms.TextBox();
+            this.txtCognomeRegister = new System.Windows.Forms.TextBox();
+            this.txtEmailRegister = new System.Windows.Forms.TextBox();
+            this.txtPasswordRegister = new System.Windows.Forms.TextBox();
+            this.txtRuoloRegister = new System.Windows.Forms.TextBox();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // txtNomeRegister
+            // 
+            this.txtNomeRegister.Location = new System.Drawing.Point(307, 67);
+            this.txtNomeRegister.Name = "txtNomeRegister";
+            this.txtNomeRegister.Size = new System.Drawing.Size(100, 22);
+            this.txtNomeRegister.TabIndex = 0;
+            // 
+            // txtCognomeRegister
+            // 
+            this.txtCognomeRegister.Location = new System.Drawing.Point(307, 109);
+            this.txtCognomeRegister.Name = "txtCognomeRegister";
+            this.txtCognomeRegister.Size = new System.Drawing.Size(100, 22);
+            this.txtCognomeRegister.TabIndex = 1;
+            // 
+            // txtEmailRegister
+            // 
+            this.txtEmailRegister.Location = new System.Drawing.Point(307, 157);
+            this.txtEmailRegister.Name = "txtEmailRegister";
+            this.txtEmailRegister.Size = new System.Drawing.Size(100, 22);
+            this.txtEmailRegister.TabIndex = 2;
+            // 
+            // txtPasswordRegister
+            // 
+            this.txtPasswordRegister.Location = new System.Drawing.Point(307, 201);
+            this.txtPasswordRegister.Name = "txtPasswordRegister";
+            this.txtPasswordRegister.Size = new System.Drawing.Size(100, 22);
+            this.txtPasswordRegister.TabIndex = 3;
+            // 
+            // txtRuoloRegister
+            // 
+            this.txtRuoloRegister.Location = new System.Drawing.Point(307, 247);
+            this.txtRuoloRegister.Name = "txtRuoloRegister";
+            this.txtRuoloRegister.Size = new System.Drawing.Size(100, 22);
+            this.txtRuoloRegister.TabIndex = 4;
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.Location = new System.Drawing.Point(319, 294);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(75, 23);
+            this.btnRegister.TabIndex = 5;
+            this.btnRegister.Text = "Registrati";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(413, 253);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(143, 16);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "(1 = admin, else = user)";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(413, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Nome";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(413, 112);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 16);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Cognome";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(413, 160);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 16);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Email";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(413, 207);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 16);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Password";
+            // 
+            // RegisterForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.txtRuoloRegister);
+            this.Controls.Add(this.txtPasswordRegister);
+            this.Controls.Add(this.txtEmailRegister);
+            this.Controls.Add(this.txtCognomeRegister);
+            this.Controls.Add(this.txtNomeRegister);
+            this.Name = "RegisterForm";
             this.Text = "RegisterForm";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox txtNomeRegister;
+        private System.Windows.Forms.TextBox txtCognomeRegister;
+        private System.Windows.Forms.TextBox txtEmailRegister;
+        private System.Windows.Forms.TextBox txtPasswordRegister;
+        private System.Windows.Forms.TextBox txtRuoloRegister;
+        private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
