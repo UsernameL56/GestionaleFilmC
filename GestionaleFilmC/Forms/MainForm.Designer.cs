@@ -32,10 +32,9 @@
             this.lblRuolo = new System.Windows.Forms.Label();
             this.dgvFilms = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.btnRicaricaPagina = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFilms)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -78,7 +77,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnRicaricaPagina);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.lblNome);
@@ -88,13 +86,15 @@
             this.panel1.Size = new System.Drawing.Size(1460, 53);
             this.panel1.TabIndex = 3;
             // 
-            // panel2
+            // button2
             // 
-            this.panel2.Controls.Add(this.dgvFilms);
-            this.panel2.Location = new System.Drawing.Point(12, 72);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1450, 557);
-            this.panel2.TabIndex = 4;
+            this.button2.Location = new System.Drawing.Point(1254, 14);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(167, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Sezione Gestisci";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -106,24 +106,13 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // panel2
             // 
-            this.button2.Location = new System.Drawing.Point(1254, 14);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(167, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Sezione Gestisci";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // btnRicaricaPagina
-            // 
-            this.btnRicaricaPagina.Location = new System.Drawing.Point(651, 15);
-            this.btnRicaricaPagina.Name = "btnRicaricaPagina";
-            this.btnRicaricaPagina.Size = new System.Drawing.Size(158, 23);
-            this.btnRicaricaPagina.TabIndex = 4;
-            this.btnRicaricaPagina.Text = "Ricarica Pagina";
-            this.btnRicaricaPagina.UseVisualStyleBackColor = true;
-            this.btnRicaricaPagina.Click += new System.EventHandler(this.btnRicaricaPagina_Click);
+            this.panel2.Controls.Add(this.dgvFilms);
+            this.panel2.Location = new System.Drawing.Point(12, 72);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1450, 557);
+            this.panel2.TabIndex = 4;
             // 
             // MainForm
             // 
@@ -152,6 +141,5 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnRicaricaPagina;
     }
 }

@@ -108,10 +108,14 @@ namespace GestionaleFilmC.Forms
         {
             AddSectionForm addSectionForm = new AddSectionForm();
             addSectionForm.ShowDialog();
+            LoadFilms();
         }
 
-        private void btnRicaricaPagina_Click(object sender, EventArgs e)
+
+        private void button2_Click(object sender, EventArgs e)
         {
+            ManageSectionForm manageSectionForm = new ManageSectionForm();
+            manageSectionForm.ShowDialog();
             LoadFilms();
         }
     }
