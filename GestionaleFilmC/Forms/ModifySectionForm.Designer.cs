@@ -161,8 +161,9 @@
             this.btnModificaLingua.Name = "btnModificaLingua";
             this.btnModificaLingua.Size = new System.Drawing.Size(277, 23);
             this.btnModificaLingua.TabIndex = 7;
-            this.btnModificaLingua.Text = "Aggiungi Lingua";
+            this.btnModificaLingua.Text = "Modifica Lingua";
             this.btnModificaLingua.UseVisualStyleBackColor = true;
+            this.btnModificaLingua.Click += new System.EventHandler(this.btnModificaLingua_Click_1);
             // 
             // txtLingua
             // 
@@ -190,8 +191,9 @@
             this.btnModificaGenere.Name = "btnModificaGenere";
             this.btnModificaGenere.Size = new System.Drawing.Size(277, 23);
             this.btnModificaGenere.TabIndex = 7;
-            this.btnModificaGenere.Text = "Aggiungi Genere";
+            this.btnModificaGenere.Text = "Modifica Genere";
             this.btnModificaGenere.UseVisualStyleBackColor = true;
+            this.btnModificaGenere.Click += new System.EventHandler(this.btnModificaGenere_Click);
             // 
             // btnModificaFilm
             // 
@@ -199,7 +201,7 @@
             this.btnModificaFilm.Name = "btnModificaFilm";
             this.btnModificaFilm.Size = new System.Drawing.Size(277, 23);
             this.btnModificaFilm.TabIndex = 6;
-            this.btnModificaFilm.Text = "Aggiungi Film";
+            this.btnModificaFilm.Text = "Modifica Film";
             this.btnModificaFilm.UseVisualStyleBackColor = true;
             this.btnModificaFilm.Click += new System.EventHandler(this.btnModificaFilm_Click);
             // 

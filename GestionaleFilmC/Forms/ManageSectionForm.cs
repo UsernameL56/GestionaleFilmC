@@ -177,5 +177,99 @@ namespace GestionaleFilmC.Forms
             }
 
         }
+
+        private void dgvGeneri_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                int idGenere = Convert.ToInt32(dgvGeneri.Rows[e.RowIndex].Cells["ID"].Value);
+                if (rbtnModifica.Checked)
+                {
+                    string nome = dgvGeneri.Rows[e.RowIndex].Cells["Nome"].Value.ToString();
+
+                    ArrayList arrayList = new ArrayList
+                    {
+                        idGenere,
+                        nome
+                    };
+
+                    ModifySectionForm modifySectionForm = new ModifySectionForm(arrayList, "genere");
+                    modifySectionForm.ShowDialog();
+                    LoadGeneri();
+                }
+                else if (rbtnElimina.Checked)
+                {
+                    DialogResult result = MessageBox.Show("Sei sicuro di voler eliminare il genere selezionato?", "Conferma eliminazione", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        string query = "DELETE FROM filmdb_generi WHERE ID = @id";
+                        using (var conn = db.GetConnection())
+                        {
+                            try
+                            {
+                                conn.Open();
+                                using (var cmd = new MySqlCommand(query, conn))
+                                {
+                                    cmd.Parameters.AddWithValue("@id", idGenere);
+                                    cmd.ExecuteNonQuery();
+                                    LoadGeneri();
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Errore durante l'eliminazione del genere: " + ex.Message);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void dgvLingue_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                int idLingua = Convert.ToInt32(dgvLingue.Rows[e.RowIndex].Cells["ID"].Value);
+                if (rbtnModifica.Checked)
+                {
+                    string nome = dgvLingue.Rows[e.RowIndex].Cells["Nome"].Value.ToString();
+
+                    ArrayList arrayList = new ArrayList
+                    {
+                        idLingua,
+                        nome
+                    };
+
+                    ModifySectionForm modifySectionForm = new ModifySectionForm(arrayList, "lingua");
+                    modifySectionForm.ShowDialog();
+                    LoadLingue();
+                }
+                else if (rbtnElimina.Checked)
+                {
+                    DialogResult result = MessageBox.Show("Sei sicuro di voler eliminare la lingua selezionata?", "Conferma eliminazione", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        string query = "DELETE FROM filmdb_lingue WHERE ID = @id";
+                        using (var conn = db.GetConnection())
+                        {
+                            try
+                            {
+                                conn.Open();
+                                using (var cmd = new MySqlCommand(query, conn))
+                                {
+                                    cmd.Parameters.AddWithValue("@id", idLingua);
+                                    cmd.ExecuteNonQuery();
+                                    LoadLingue();
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Errore durante l'eliminazione della lingua: " + ex.Message);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

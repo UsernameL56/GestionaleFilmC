@@ -55,9 +55,7 @@ namespace GestionaleFilmC.Forms
                     {
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Registrazione completata!");
-                        LoginForm loginForm = new LoginForm();
                         this.Hide();
-                        loginForm.ShowDialog();
                         this.Close();
                     }
                     catch (Exception ex)

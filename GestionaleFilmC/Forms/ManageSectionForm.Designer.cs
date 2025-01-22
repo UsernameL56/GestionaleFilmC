@@ -88,9 +88,13 @@
             // 
             // dgvFilms
             // 
+            this.dgvFilms.AllowUserToAddRows = false;
+            this.dgvFilms.AllowUserToDeleteRows = false;
+            this.dgvFilms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFilms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFilms.Location = new System.Drawing.Point(15, 25);
             this.dgvFilms.Name = "dgvFilms";
+            this.dgvFilms.ReadOnly = true;
             this.dgvFilms.RowHeadersWidth = 51;
             this.dgvFilms.RowTemplate.Height = 24;
             this.dgvFilms.Size = new System.Drawing.Size(705, 567);
@@ -99,23 +103,33 @@
             // 
             // dgvGeneri
             // 
+            this.dgvGeneri.AllowUserToAddRows = false;
+            this.dgvGeneri.AllowUserToDeleteRows = false;
+            this.dgvGeneri.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvGeneri.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGeneri.Location = new System.Drawing.Point(19, 26);
             this.dgvGeneri.Name = "dgvGeneri";
+            this.dgvGeneri.ReadOnly = true;
             this.dgvGeneri.RowHeadersWidth = 51;
             this.dgvGeneri.RowTemplate.Height = 24;
             this.dgvGeneri.Size = new System.Drawing.Size(299, 416);
             this.dgvGeneri.TabIndex = 3;
+            this.dgvGeneri.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGeneri_CellDoubleClick);
             // 
             // dgvLingue
             // 
+            this.dgvLingue.AllowUserToAddRows = false;
+            this.dgvLingue.AllowUserToDeleteRows = false;
+            this.dgvLingue.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLingue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLingue.Location = new System.Drawing.Point(16, 25);
             this.dgvLingue.Name = "dgvLingue";
+            this.dgvLingue.ReadOnly = true;
             this.dgvLingue.RowHeadersWidth = 51;
             this.dgvLingue.RowTemplate.Height = 24;
             this.dgvLingue.Size = new System.Drawing.Size(299, 416);
             this.dgvLingue.TabIndex = 4;
+            this.dgvLingue.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLingue_CellDoubleClick);
             // 
             // rbtnModifica
             // 
