@@ -53,10 +53,11 @@ namespace GestionaleFilmC.Forms
                                 string cognome = reader["Cognome"].ToString();
                                 string emailUtente = reader["Email"].ToString();
                                 string ruolo = reader["Admin"].ToString();
+                                int userId = Convert.ToInt32(reader["ID"]);
 
                                 MessageBox.Show("Login effettuato con successo!");
                                 // Passa alla finestra principale
-                                MainForm mainForm = new MainForm(nome, cognome, emailUtente, ruolo);
+                                MainForm mainForm = new MainForm(nome, cognome, emailUtente, ruolo, userId);
                                 this.Hide();
                                 mainForm.ShowDialog();
                                 this.Close();

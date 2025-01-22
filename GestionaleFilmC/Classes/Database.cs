@@ -20,7 +20,7 @@ namespace GestionaleFilmC.Classes
             {
                 connection = new MySqlConnection(connectionString);
             }
-            return connection;
+            return new MySqlConnection(connectionString);
         }
 
         public bool TestConnection()

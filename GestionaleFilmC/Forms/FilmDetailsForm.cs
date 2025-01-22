@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using GestionaleFilmC.Classes;
 using MySql.Data.MySqlClient;
 
@@ -15,11 +16,13 @@ namespace GestionaleFilmC.Forms
     public partial class FilmDetailsForm : Form
     {
         private int filmID;
+        private int userID;
         private Database db = new Database();
-        public FilmDetailsForm(int filmID)
+        public FilmDetailsForm(int filmID, int userID)
         {
             InitializeComponent();
             this.filmID = filmID;
+            this.userID = userID;
             LoadFilmDetails();
             LoadComments();
         }
@@ -34,7 +37,6 @@ namespace GestionaleFilmC.Forms
                              FROM filmdb_films
                              WHERE ID = @filmID";
 
-            MessageBox.Show(query);
             using (var conn = db.GetConnection())
             {
                 try
@@ -59,7 +61,12 @@ namespace GestionaleFilmC.Forms
                 {
                     MessageBox.Show("Errore durante il caricamento dei dettagli: " + ex.Message);
                 }
+                finally 
+                {
+                    conn.Close();
+                }
             }
+            
         }
 
         private void LoadComments()
@@ -69,7 +76,6 @@ namespace GestionaleFilmC.Forms
                              JOIN filmdb_users u ON c.ID_User = u.ID
                              WHERE c.ID_Film = @filmID";
 
-            MessageBox.Show(query);
             using (var conn = db.GetConnection())
             {
                 try
@@ -93,6 +99,56 @@ namespace GestionaleFilmC.Forms
                 catch (Exception ex)
                 {
                     MessageBox.Show("Errore durante il caricamento dei commenti: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        private void btnInviaCommento_Click(object sender, EventArgs e)
+        {
+            string comment = txtCommento.Text.Trim();
+            int rating = (int)numValutazione.Value;
+
+            // Validazione dell'input
+            if (string.IsNullOrEmpty(comment))
+            {
+                MessageBox.Show("Inserisci un commento valido.");
+                return;
+            }
+
+
+            string query = "INSERT INTO filmdb_commenti (Stelle, Commento, ID_User, ID_Film) VALUES (@rating, @comment, @userId, @filmId)";
+
+            using (var conn = db.GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    using (var cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@rating", rating);
+                        cmd.Parameters.AddWithValue("@comment", comment);
+                        cmd.Parameters.AddWithValue("@userId", userID);
+                        cmd.Parameters.AddWithValue("@filmId", filmID);
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Commento aggiunto con successo!");
+                        numValutazione.Value= 1;
+                        txtCommento.Text = "";
+                        LoadComments(); // Aggiorna la lista dei commenti
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Errore durante l'invio del commento: " + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
                 }
             }
         }

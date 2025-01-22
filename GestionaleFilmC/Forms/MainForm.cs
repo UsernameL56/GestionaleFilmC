@@ -20,14 +20,16 @@ namespace GestionaleFilmC.Forms
         string cognome;
         string email;
         string ruolo;
+        int userId;
 
-        public MainForm(string nome, string cognome, string email, string ruolo)
+        public MainForm(string nome, string cognome, string email, string ruolo, int userId)
         {
             InitializeComponent();
             this.nome = nome;
             this.cognome = cognome;
             this.email = email;
             this.ruolo = ruolo;
+            this.userId = userId;
 
             lblNome.Text = $"Benvenuto, {nome}";
             lblRuolo.Text = $"Ruolo: {ruolo}";
@@ -42,6 +44,7 @@ namespace GestionaleFilmC.Forms
                 // Abilita pulsanti per visualizzare film e preferiti
             }
             LoadFilms();
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -93,7 +96,7 @@ namespace GestionaleFilmC.Forms
                 int filmId = Convert.ToInt32(dgvFilms.Rows[e.RowIndex].Cells["ID"].Value);
 
                 // Apri il form con i dettagli del film
-                FilmDetailsForm detailsForm = new FilmDetailsForm(filmId);
+                FilmDetailsForm detailsForm = new FilmDetailsForm(filmId,userId);
                 detailsForm.ShowDialog();
             }
         }
