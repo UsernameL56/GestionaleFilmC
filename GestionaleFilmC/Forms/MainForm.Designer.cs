@@ -31,13 +31,20 @@
             this.lblNome = new System.Windows.Forms.Label();
             this.lblRuolo = new System.Windows.Forms.Label();
             this.dgvFilms = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnRicaricaPagina = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFilms)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(12, 9);
+            this.lblNome.Location = new System.Drawing.Point(10, 21);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(44, 16);
             this.lblNome.TabIndex = 0;
@@ -46,7 +53,7 @@
             // lblRuolo
             // 
             this.lblRuolo.AutoSize = true;
-            this.lblRuolo.Location = new System.Drawing.Point(159, 9);
+            this.lblRuolo.Location = new System.Drawing.Point(188, 21);
             this.lblRuolo.Name = "lblRuolo";
             this.lblRuolo.Size = new System.Drawing.Size(44, 16);
             this.lblRuolo.TabIndex = 1;
@@ -56,30 +63,83 @@
             // 
             this.dgvFilms.AllowUserToAddRows = false;
             this.dgvFilms.AllowUserToDeleteRows = false;
+            this.dgvFilms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFilms.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvFilms.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvFilms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFilms.Location = new System.Drawing.Point(2, 75);
+            this.dgvFilms.Location = new System.Drawing.Point(16, 14);
             this.dgvFilms.Name = "dgvFilms";
             this.dgvFilms.ReadOnly = true;
             this.dgvFilms.RowHeadersWidth = 51;
             this.dgvFilms.RowTemplate.Height = 24;
-            this.dgvFilms.Size = new System.Drawing.Size(1063, 554);
+            this.dgvFilms.Size = new System.Drawing.Size(1426, 527);
             this.dgvFilms.TabIndex = 2;
             this.dgvFilms.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFilms_CellContentDoubleClick);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnRicaricaPagina);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.lblNome);
+            this.panel1.Controls.Add(this.lblRuolo);
+            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1460, 53);
+            this.panel1.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dgvFilms);
+            this.panel2.Location = new System.Drawing.Point(12, 72);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1450, 557);
+            this.panel2.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1075, 14);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(158, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Sezione Aggiungi";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1254, 14);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(167, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Sezione Gestisci";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btnRicaricaPagina
+            // 
+            this.btnRicaricaPagina.Location = new System.Drawing.Point(651, 15);
+            this.btnRicaricaPagina.Name = "btnRicaricaPagina";
+            this.btnRicaricaPagina.Size = new System.Drawing.Size(158, 23);
+            this.btnRicaricaPagina.TabIndex = 4;
+            this.btnRicaricaPagina.Text = "Ricarica Pagina";
+            this.btnRicaricaPagina.UseVisualStyleBackColor = true;
+            this.btnRicaricaPagina.Click += new System.EventHandler(this.btnRicaricaPagina_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1466, 641);
-            this.Controls.Add(this.dgvFilms);
-            this.Controls.Add(this.lblRuolo);
-            this.Controls.Add(this.lblNome);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFilms)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -88,5 +148,10 @@
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblRuolo;
         private System.Windows.Forms.DataGridView dgvFilms;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRicaricaPagina;
     }
 }

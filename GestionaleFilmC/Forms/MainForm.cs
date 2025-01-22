@@ -32,16 +32,19 @@ namespace GestionaleFilmC.Forms
             this.userId = userId;
 
             lblNome.Text = $"Benvenuto, {nome}";
-            lblRuolo.Text = $"Ruolo: {ruolo}";
+            lblRuolo.Text = $"Admin: {ruolo}";
 
             // Mostra funzionalità diverse in base al ruolo
-            if (ruolo == "1")
+            if (ruolo == "True")
             {
-                // Abilita pulsanti per CRUD sui film
+                // Abilita pulsante per aggiungere film
+                button1.Visible = true;
+                button2.Visible = true;
             }
             else
             {
-                // Abilita pulsanti per visualizzare film e preferiti
+                button1.Visible = false;
+                button2.Visible = false;
             }
             LoadFilms();
             
@@ -99,6 +102,17 @@ namespace GestionaleFilmC.Forms
                 FilmDetailsForm detailsForm = new FilmDetailsForm(filmId,userId);
                 detailsForm.ShowDialog();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddSectionForm addSectionForm = new AddSectionForm();
+            addSectionForm.ShowDialog();
+        }
+
+        private void btnRicaricaPagina_Click(object sender, EventArgs e)
+        {
+            LoadFilms();
         }
     }
 }
